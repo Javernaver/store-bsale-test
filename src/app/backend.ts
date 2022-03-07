@@ -2,7 +2,9 @@ import express, { Application } from 'express'
 
 import components from "./components";
 import cors from "cors";
+import dotenv from "dotenv";
 import morgan from 'morgan'
+import path from 'path';
 
 export class App {
     app: Application;
@@ -14,9 +16,11 @@ export class App {
         this.settings();
         this.middlewares();
         this.routes();
+        this.setFrontEnd();
     }
 
     private settings() {
+        dotenv.config();
         this.app.set('port', this.port || process.env.PORT || 3000);
     }
 
@@ -28,6 +32,17 @@ export class App {
 
     private routes() {
         this.app.use('/api', ...components);
+    }
+
+    private setFrontEnd() {
+
+        //Directorio publico
+        this.app.use(express.static('src/app/frontend'));
+        // todas las rutas
+        this.app.all( '*', (req, res) => {
+            res.sendFile( path.resolve( __dirname, 'frontend/index.html'));
+        });
+
     }
 
     async listen(): Promise<void> {

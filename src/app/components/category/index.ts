@@ -1,8 +1,8 @@
 import express, { Express } from 'express';
 
-import router from "./categories.network";
+import router from "./category.network";
 
 const categories: Express = express();
-categories.use('/categories', router);
+categories.use('/category', router);
 
 export default categories;

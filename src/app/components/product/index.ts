@@ -1,8 +1,8 @@
 import express, { Express } from 'express';
 
-import router from "./products.network";
+import router from "./product.network";
 
 const products: Express = express();
-products.use('/products', router);
+products.use('/product', router);
 
 export default products;

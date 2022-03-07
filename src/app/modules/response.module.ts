@@ -16,7 +16,7 @@ function error(req: Request, res: Response, message: any, status?: number) {
     res.status(statusCode).send({
         error: message,
         status: statusCode,
-        message: ""
+        message: "Too bad :c"
     });
 }
 

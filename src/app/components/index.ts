@@ -1,11 +1,11 @@
 import { Express } from "express";
-import categories from './categories/index';
-import products from "./products/index";
+import category from './category/index';
+import product from "./product/index";
 
 const components: Express[] = [
     
-    products,
-    categories
+    product,
+    category
     
 ];
 

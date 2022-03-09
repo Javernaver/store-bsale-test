@@ -12,7 +12,7 @@ router.get('/all', async(req: Request, res: Response) => {
     try {
         const result = await productController.getProducts();
 
-    
+        
         responseModule.success(req, res, result);
     } catch (error) {
         responseModule.error(req, res, "Error desconocido");

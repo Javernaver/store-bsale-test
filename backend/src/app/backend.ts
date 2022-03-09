@@ -37,10 +37,10 @@ export class App {
     private setFrontEnd() {
 
         //Directorio publico
-        this.app.use(express.static('src/app/frontend'));
+        this.app.use(express.static('src/app/public'));
         // todas las rutas
         this.app.all( '*', (req, res) => {
-            res.sendFile( path.resolve( __dirname, 'frontend/index.html'));
+            res.sendFile( path.resolve( __dirname, 'public/index.html'));
         });
 
     }

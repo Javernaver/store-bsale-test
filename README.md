@@ -38,10 +38,10 @@ El código fuente está distribuido separadamente por Backend y por Frontend y s
 El backend esta desarrollado con Express utilizando TypeScript y su código para desarrollo se compone de la siguiente manera: 
 
 
-![](/images/code-front.png)
+![](/images/code-back.png)
 
 ## Frontend
 El frontend está desarrollado con Vanilla Javascript utilizando LiveServer para ver los cambios en el desarrollo y Webpack para comprimir todos los Scripts en uno solo para distribución.  El código en desarrollo se compone de la siguiente manera: 
 
 
-![](/images/code-back.png)
+![](/images/code-front.png)

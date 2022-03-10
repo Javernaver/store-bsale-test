@@ -1,18 +1,38 @@
+import { getDiscountedProducts } from "../providers/products.js";
 import { getProducts } from "../providers/products.js";
+import { getProductsCategory } from "../providers/products.js";
 import { hideLoading } from "../utils.js";
 import { parseRequestUrl } from "../utils.js";
 import { showLoading } from "../utils.js";
 
-const HomeScreen = {
+const CategoriesScreen = {
         render: async() => {
-                // Cargar
                 showLoading();
-                const { value } = parseRequestUrl();
-                const products = await getProducts({ searchKeyword: value });
-                // Terminar de cargar
+                const { resource } = parseRequestUrl();
+                //console.log(resource);
+                let products;
+                switch (resource) {
+                    case 'energy-drinks':
+                        products = await getProductsCategory(1);
+                        break;
+                    case 'alcohol-drinks':
+                        products = await getProductsCategory('alcohol');
+                        break;
+                    case 'drinks':
+                        products = await getProductsCategory(4);
+                        break;
+                    case 'snacks':
+                        products = await getProductsCategory(5);
+                        break;
+                    case 'discounted':
+                        products = await getDiscountedProducts();
+                        break;
+                    default:
+                        products = await getProducts('all');
+                }
                 hideLoading();
 
-                // si no se encontraron productos buscando o trayendo desde el backend
+                // si no se encontraron productos 
                 if (products.length == 0) {
                     return `<h2 class="text-center">No se encontraron productos :c</h2>`;
                 }
@@ -29,8 +49,6 @@ const HomeScreen = {
                         product.discountTxt = `¡${product.discount}% de descuento!`;
                     }
                 });
-
-
 
                 return `
         <div class="row" id="products-row">
@@ -62,4 +80,4 @@ const HomeScreen = {
     }
 };
 
-export default HomeScreen;
+export default CategoriesScreen;

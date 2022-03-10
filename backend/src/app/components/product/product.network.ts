@@ -19,6 +19,18 @@ router.get('/all', async(req: Request, res: Response) => {
     }
 });
 
+router.get('/discounted', async(req: Request, res: Response) => {
+
+    try {
+        const result = await productController.getDiscountedProducts();
+
+        
+        responseModule.success(req, res, result);
+    } catch (error) {
+        responseModule.error(req, res, "Error desconocido");
+    }
+});
+
 
 router.get('/:name', async(req: Request, res: Response) => {
 
@@ -34,6 +46,32 @@ router.get('/:name', async(req: Request, res: Response) => {
     }
 });
 
+router.get('/id/:id', async(req: Request, res: Response) => {
 
+    const id: string = req.params.id;
+    
+    try {
+
+        const result = await productController.getProductById(id);
+
+        responseModule.success(req, res, result);
+    } catch (error) {
+        responseModule.error(req, res, "Error desconocido");
+    }
+});
+
+router.get('/category/:id', async(req: Request, res: Response) => {
+
+    const id: string = req.params.id;
+
+    try {
+        const result = await productController.getProductsCategory(id);
+
+    
+        responseModule.success(req, res, result);
+    } catch (error) {
+        responseModule.error(req, res, "Error desconocido");
+    }
+});
 
 export default router;

@@ -18,12 +18,14 @@ router.get('/all', async(req: Request, res: Response) => {
     }
 });
 
-router.get('/:cat', async(req: Request, res: Response) => {
 
-    const cat: string = req.params.cat;
+
+router.get('/id/:id', async(req: Request, res: Response) => {
+
+    const id: string = req.params.id;
 
     try {
-        const result = await categoryController.getProductsCategory(cat);
+        const result = await categoryController.getCategoryById(id);
 
     
         responseModule.success(req, res, result);

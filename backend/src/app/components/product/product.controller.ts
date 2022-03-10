@@ -17,6 +17,38 @@ async function getProducts() {
 
 }
 
+async function getDiscountedProducts() {
+
+    try {
+        // conectar a la base de datos
+        const conn = await connect();
+        // consulta sql para obtener los productos
+        const products = await conn.query('SELECT * FROM product WHERE product.discount > 0');
+        
+        return products[0];
+    }
+    catch (e) {
+        console.log(e)
+    }
+
+}
+
+async function getProductById(id: string) {
+
+    try {
+        // conectar a la base de datos
+        const conn = await connect();
+        // consulta sql para obtener los productos
+        const products = await conn.query('SELECT * FROM product WHERE product.id = ?', [id]);
+        
+        return products[0];
+    }
+    catch (e) {
+        console.log(e)
+    }
+
+}
+
 async function searchProductByName(name: string) {
 
     try {
@@ -33,5 +65,33 @@ async function searchProductByName(name: string) {
 
 }
 
+async function getProductsCategory(cat: string) {
 
-export default { getProducts, searchProductByName }
+    try {
+        
+        // conectar a la base de datos
+        const conn = await connect();
+        
+        let products;
+
+        // consulta sql para obtener las bebidas alcoholicos
+        if (cat == 'alcohol') {
+            products = await conn.query(
+                'SELECT product.id, product.name, product.url_image, product.price, product.discount, product.category FROM product LEFT JOIN category ON product.category = category.id WHERE category.id = 2 OR category.id = 3 OR category.id = 6 OR category.id = 7');
+        }
+        else {
+            // consulta sql para obtener los productos de la categoria requerida
+            products = await conn.query(
+                'SELECT product.id, product.name, product.url_image, product.price, product.discount, product.category FROM product LEFT JOIN category ON product.category = category.id WHERE category.id = ?', [cat]);
+        }
+        
+        return products[0];
+    }
+    catch (e) {
+        console.log(e)
+    }
+
+}
+
+
+export default { getProducts, searchProductByName, getProductById, getProductsCategory, getDiscountedProducts }

@@ -13,53 +13,34 @@
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css" rel="stylesheet" />
     <link rel='stylesheet' type='text/css' media='screen' href='css/home.css'>
-
+    <script type="module" src="./src/index.js"></script>
 </head>
 
 <body>
+    <div class="overlay" id="loading-overlay">Cargando...</div>
     <!-- Navbar -->
     <nav class="navbar"></nav>
-
-    <!-- Productos cards  -->
-    <!--Main Navigation-->
 
     <!--Main layout-->
     <main class="my-5" id="main-container">
         <div class="container">
             <!--Section: Content-->
             <section class="text-center">
-                <h4 class="mb-5"><strong>Botilleria Hombre Duff</strong></h4>
+                <h4 class="mb-5"><strong>Botilleria Hombre Duff - ¡La mejor de Springfield!</strong></h4>
             </section>
 
             <div class="row" id="products-list"></div>
 
-            <!--Section: Content-->
 
-            <!-- Pagination -->
-            <nav class="my-4" aria-label="...">
-                <ul class="pagination pagination-circle justify-content-center">
-                    <li class="page-item">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active" aria-current="page">
-                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
+
         </div>
     </main>
-    <!--Main layout-->
-    <!-- Crear navbar dinamicamente con js -->
-    <script src='src/nav.js'></script>
+
+
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script>
 
-    <script src="main.js"></script>
+
 </body>
 
 </html>

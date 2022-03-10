@@ -16,14 +16,15 @@ async function getCategorys() {
 
 }
 
-async function getProductsCategory(cat: string) {
+
+
+async function getCategoryById(id: string) {
 
     try {
         // conectar a la base de datos
         const conn = await connect();
         // consulta sql para obtener los productos
-        const products = await conn.query(
-            'SELECT product.id, product.name, product.url_image, product.price, product.discount, product.category FROM product LEFT JOIN category ON product.category = category.id WHERE category.id = ?', [cat]);
+        const products = await conn.query('SELECT * FROM category WHERE category.id = ?', [id]);
         
         return products[0];
     }
@@ -34,6 +35,4 @@ async function getProductsCategory(cat: string) {
 }
 
 
-
-
-export default { getCategorys, getProductsCategory }
+export default { getCategorys, getCategoryById }

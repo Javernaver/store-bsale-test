@@ -35,5 +35,13 @@ npm start
 ## Distribución del Código
 El código fuente está distribuido separadamente por Backend y por Frontend y se definen de la siguiente forma:
 ## Backend
-El backend esta desarrollado con Express utilizando TypeScript y su código para desarrollo se compone así:
+El backend esta desarrollado con Express utilizando TypeScript y su código para desarrollo se compone de la siguiente manera: 
+
+
 ![](/images/code-front.png)
+
+## Frontend
+El frontend está desarrollado con Vanilla Javascript utilizando LiveServer para ver los cambios en el desarrollo y Webpack para comprimir todos los Scripts en uno solo para distribución.  El código en desarrollo se compone de la siguiente manera: 
+
+
+![](/images/code-back.png)

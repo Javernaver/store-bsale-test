@@ -7,6 +7,7 @@ import { showLoading } from "../utils.js";
 
 const CategoriesScreen = {
         render: async() => {
+                // cargar
                 showLoading();
                 const { resource } = parseRequestUrl();
                 //console.log(resource);
@@ -30,6 +31,7 @@ const CategoriesScreen = {
                     default:
                         products = await getProducts('all');
                 }
+                // terminar de cargar
                 hideLoading();
 
                 // si no se encontraron productos 

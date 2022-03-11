@@ -32,6 +32,7 @@ export const createNav = {
     `;
     },
     after_render: () => {
+        // Gestiona la barra de busqueda obteniendo lo que se busca y redireccionando a los resultados
         document
             .getElementById('search-form')
             .addEventListener('submit', async(e) => {

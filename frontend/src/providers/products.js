@@ -1,5 +1,6 @@
 import { apiUrl } from '../config.js';
 
+// obtener los productos ya sea buscando o bien obteniendolos todos
 export const getProducts = async({ searchKeyword = '' }) => {
     try {
         let queryString = 'all';
@@ -22,6 +23,8 @@ export const getProducts = async({ searchKeyword = '' }) => {
     }
 };
 
+
+// obtener un producto por su id
 export const getProduct = async(id) => {
     try {
 
@@ -42,9 +45,10 @@ export const getProduct = async(id) => {
     }
 };
 
+
+// obtener todos los productos de una categoria
 export const getProductsCategory = async(id) => {
     try {
-
 
         const response = await fetch(`${apiUrl}/api/product/category/${id}`, {
             method: 'GET',
@@ -63,9 +67,10 @@ export const getProductsCategory = async(id) => {
     }
 };
 
+
+// obtener los productos con descuento
 export const getDiscountedProducts = async() => {
     try {
-
 
         const response = await fetch(`${apiUrl}/api/product/discounted`, {
             method: 'GET',

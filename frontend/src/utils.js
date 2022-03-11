@@ -1,3 +1,5 @@
+
+// extrae la informacion relevante desde la ubicaion actual 
 export const parseRequestUrl = () => {
     const address = document.location.hash.slice(1).split('?')[0];
     const queryString =

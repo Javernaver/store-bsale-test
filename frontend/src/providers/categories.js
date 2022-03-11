@@ -1,5 +1,6 @@
 import { apiUrl } from '../config.js';
 
+// obtiene una categoria por id
 export const getCategory = async(id) => {
     try {
 

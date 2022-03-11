@@ -6,6 +6,7 @@ import { showLoading } from "../utils.js";
 
 const ProductScreen = {
     render: async() => {
+        // cargar
         showLoading();
         // obtener id desde url
         const { id } = parseRequestUrl();
@@ -15,10 +16,8 @@ const ProductScreen = {
         // obtener categoria desde backend
         const category = await getCategory(product.category);
 
-
+        // termino de cargar
         hideLoading();
-        // detectar si hay descuento
-
 
         // si el producto tiene descuento se actualiza el precio y se agrega un atributo nuevo con el texto del descuento
         product.discountTxt = '';

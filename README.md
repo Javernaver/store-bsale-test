@@ -31,6 +31,12 @@ npm install
 npm start
 ```
 
+## API REST
+
+La API está distribuida de la siguiente forma:
+
+![](/images/api-rest.png)
+
 
 ## Distribución del Código
 El código fuente está distribuido separadamente por Backend y por Frontend y se definen de la siguiente forma:

@@ -1,7 +1,7 @@
 import { Product } from "../../models/product.model";
 import { connect } from "../../db/database";
 
-async function getProducts() {
+const getProducts = async () => {
 
     try {
         // conectar a la base de datos
@@ -17,7 +17,7 @@ async function getProducts() {
 
 }
 
-async function getDiscountedProducts() {
+const getDiscountedProducts = async () => {
 
     try {
         // conectar a la base de datos
@@ -33,7 +33,7 @@ async function getDiscountedProducts() {
 
 }
 
-async function getProductById(id: string) {
+const getProductById = async (id: string) => {
 
     try {
         // conectar a la base de datos
@@ -49,7 +49,7 @@ async function getProductById(id: string) {
 
 }
 
-async function searchProductByName(name: string) {
+const searchProductByName = async (name: string) => {
 
     try {
         // conectar a la base de datos
@@ -65,7 +65,7 @@ async function searchProductByName(name: string) {
 
 }
 
-async function getProductsCategory(cat: string) {
+const getProductsCategory = async (cat: string) => {
 
     try {
         

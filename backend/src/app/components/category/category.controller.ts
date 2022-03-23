@@ -1,6 +1,6 @@
 import { connect } from "../../db/database";
 
-async function getCategorys() {
+const getCategorys = async () => {
 
     try {
         // conectar a la base de datos
@@ -18,7 +18,7 @@ async function getCategorys() {
 
 
 
-async function getCategoryById(id: string) {
+const getCategoryById = async (id: string) => {
 
     try {
         // conectar a la base de datos
